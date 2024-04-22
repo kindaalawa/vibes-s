@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/homepage.css">
+    <title>VibesK</title>
+    <style>
+        hr.bold-line {
+            border-top: 4px solid #000;
+            margin: 10px 0;
+        }
+
+        /* Custom modal styling */
+        .modal-content {
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-header {
+            background-color: #343a40;
+            color: #fff;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .modal-footer {
+            border-radius: 0 0 20px 20px;
+        }
+
+        .modal-footer button {
+            transition: background-color 0.3s;
+        }
+
+        .modal-footer button:hover {
+            background-color: #f8f9fa;
+        }
+
+        .modal-body {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <%- include('partials/header') %>
+
+    <!-- Logo -->
+    <a class="navbar-brand mx-auto d-flex justify-content-center" href="/category/1/products">
+        <img src="/images/logo2.png" alt="logo2" style="width: 400px; height: 160px;">
+    </a>
+
+    <!-- Add a bold line after the logo -->
+    <hr class="bold-line">
+
+    <div class="container text-center my-4">
+        <h2>VibesK smart technology helps you do more with less.</h2>
+        <!-- Add a bold line after the heading -->
+        <hr class="bold-line">
+
+        <!-- Product Grid -->
+        <div class="products-grid" style="margin-bottom: 50px; margin-top: 50px;">
+            <!-- Product 1 -->
+            <div class="product-item">
+                <div class="card border-0">
+                    <a href="#"
+                        onclick="showProductDetails('iPad', 'A versatile tablet for work and play.', '$499', '• 10.2-inch Retina display\n• A13 Bionic chip\n• Supports Apple Pencil (1st generation)\n• iPadOS')">
+                        <img src="/images/ipad.png" alt="ipads" style="width: 180px; height: 135px;">
+                    </a>
+                    <hr class="bold-line">
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-item">
+                <div class="card border-0">
+                    <a href="#"
+                        onclick="showProductDetails('iPhone 13', 'The latest iPhone with stunning camera capabilities.', '$799', '• 6.1-inch Super Retina XDR display\n• A15 Bionic chip\n• Dual-camera system with 12MP Ultra Wide and Wide cameras\n• Night mode, Deep Fusion, and Smart HDR 3')">
+                        <img src="/images/iphone13.png" alt="iphone13" style="width: 180px; height: 135px;">
+                    </a>
+                    <hr class="bold-line">
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-item">
+                <div class="card border-0">
+                    <a href="#"
+                        onclick="showProductDetails('Mac', 'Powerful and sleek, the ideal choice for creative professionals.', '$1299', '• 13.3-inch Retina display\n• Apple M1 chip with 8-core CPU and 8-core GPU\n• 8GB unified memory\n• 256GB SSD storage\n• macOS Big Sur')">
+                        <img src="/images/mac.png" alt="macs" style="width: 180px; height: 135px;">
+                    </a>
+                    <hr class="bold-line">
+                </div>
+            </div>
+            <!-- Product 4 -->
+            <div class="product-item">
+                <div class="card border-0">
+                    <a href="#"
+                        onclick="showProductDetails('PS', 'Immersive gaming experience with the PlayStation console.', '$499', '• 4K gaming and entertainment\n• High-speed SSD\n• Ray tracing technology\n• Backward compatibility with PS4 games')">
+                        <img src="/images/ps.png" alt="ps" style="width: 180px; height: 135px;">
+                    </a>
+                    <hr class="bold-line">
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript and Bootstrap Scripts -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <!-- Modal -->
+        <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Product details content goes here -->
+                        <p id="productDescription"></p>
+                        <!-- Add more details as needed -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="addToCart()">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                        <button type="button" class="btn btn-outline-success" onclick="addToWishlist()">
+                            <i class="fas fa-heart"></i> Add to Wishlist
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript Function to Show Modal -->
+        <script>
+            function showProductDetails(productName, productDescription, productPrice, productFeatures) {
+                // Set the modal content dynamically
+                document.getElementById('productModalLabel').innerHTML = productName;
+                document.getElementById('productDescription').innerHTML =
+                    `<strong>Description:</strong> ${productDescription}<br>
+                    <strong>Price:</strong> ${productPrice}<br>
+                    <strong>Features:</strong><br>${productFeatures}`;
+
+                // Show the modal
+                $('#productModal').modal('show');
+            }
+
+            function addToCart() {
+                // Add your logic for adding to the cart here
+                alert('Product added to cart!');
+                $('#productModal').modal('hide');
+            }
+
+            function addToWishlist() {
+                // Add your logic for adding to the wishlist here
+                alert('Product added to wishlist!');
+                $('#productModal').modal('hide');
+            }
+        </script>
+    </div>
+
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+</body>
+
+</html>

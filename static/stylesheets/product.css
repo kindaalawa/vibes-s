@@ -1,0 +1,36 @@
+/* Container holding all products */
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates four columns */
+    gap: 20px; /* Space between items */
+}
+
+/* Individual product card */
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    position: relative; /* Needed for absolute positioning of the button */
+}
+
+/* Image styling */
+.product img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Initially hide the 'Add to Cart' button */
+.product .add-to-cart {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Show the 'Add to Cart' button on hover */
+.product:hover .add-to-cart {
+    display: block;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadata for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS and custom stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <!-- Page Title -->
+    <title>Login</title>
+</head>
+
+<body style="background-color: #FFFDFC;">
+
+    <!-- Header partial inclusion -->
+    <% include('../partials/header') %>
+
+    <!-- Main Content - Login Form -->
+    <main class="card-user">
+        <!-- Login Form Header -->
+        <h2 class="text-center mb-4">LOG IN</h2>
+
+        <!-- Display error message if present -->
+        <% if (typeof message !== 'undefined' && message) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= message %>
+            </div>
+        <% } %>
+
+        <!-- Login Form -->
+        <form action="/login" method="POST">
+            <!-- Email Input -->
+            <div class="form-group">
+                <label for="customerEmail">Email</label>
+                <input type="email" class="form-control" id="customerEmail" name="customer_Email" placeholder="Email" required>
+            </div>
+
+            <!-- Password Input -->
+            <div class="form-group">
+                <label for="customerPassword">Password</label>
+                <input type="password" class="form-control" id="customerPassword" name="customer_Password" placeholder="Password" required>
+            </div>
+
+            <!-- Remember Me Checkbox -->
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
+                <label class="form-check-label" for="rememberMe">Remember Me</label>
+            </div>
+
+            <!-- Forgot Password Link -->
+            <a href="/resetpass" class="forgot-password-link">Forgot your password?</a>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-signup">Log in</button>
+
+            <!-- Create an Account Link -->
+            <a href="/signup" class="log-in-link">Create an account</a>
+        </form>
+    </main>
+
+    <!-- External Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Footer partial inclusion -->
+    <% include('../partials/footer') %>
+</body>
+
+</html>

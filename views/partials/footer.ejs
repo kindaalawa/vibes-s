@@ -1,0 +1,68 @@
+<!-- Creative Footer Section -->
+<footer class="footer">
+    <div class="footer-content">
+        <!-- Explore More Section -->
+        <div class="footer-links">
+            <a href="/about" class="footer-link" onmouseover="animateFooterLink(this)">Uncover Our Story</a>
+            <a href="/faq" class="footer-link" onmouseover="animateFooterLink(this)">Discover FAQs</a>
+            <a href="/contact" class="footer-link" onmouseover="animateFooterLink(this)">Connect With Us</a>
+            <a href="/return-policy" class="footer-link" onmouseover="animateFooterLink(this)">Our Hassle-Free Returns</a>
+        </div>
+
+        <!-- Brand and Social Section -->
+        <div class="footer-brand">
+            <p onmouseover="animateBrandText(this)">Tap into our world</p>
+            <a href="https://www.instagram.com/kinda.alawaa/" target="_blank" onmouseover="animateSocialLogo(this)">
+                <img src="/images/insta-logo.png" alt="Instagram" class="social-logo">
+            </a>
+        </div>
+
+        <!-- Stay Updated Section -->
+        <div class="newsletter">
+            <h4 onmouseover="animateNewsletterTitle(this)">Subscribe for Latest Updates</h4>
+            <form action="/subscribe" method="post" class="subscribe-form">
+                <input type="email" name="email" placeholder="Enter your email" required class="subscribe-input" onmouseover="animateSubscribeInput(this)">
+                <button type="submit" class="subscribe-btn" onmouseover="animateSubscribeButton(this)">Get Updates</button>
+            </form>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function animateFooterLink(element) {
+        // Add your creative animation or styling when a footer link is touched
+        element.style.color = "#FF5733"; // Example: Change text color
+        element.style.transition = "color 0.3s ease"; // Example: Add a smooth color transition
+    }
+
+    function animateBrandText(element) {
+        // Add your creative animation or styling when the brand text is touched
+        element.style.fontWeight = "bold"; // Example: Increase font weight
+        element.style.transition = "font-weight 0.5s ease"; // Example: Add a smooth font weight transition
+    }
+
+    function animateSocialLogo(element) {
+        // Add your creative animation or styling when the social logo is touched
+        element.style.transform = "rotate(360deg)"; // Example: Rotate the logo
+        element.style.transition = "transform 0.8s ease"; // Example: Add a smooth rotation transition
+    }
+
+    function animateNewsletterTitle(element) {
+        // Add your creative animation or styling when the newsletter title is touched
+        element.style.textShadow = "2px 2px 4px #888888"; // Example: Add a subtle text shadow
+        element.style.transition = "text-shadow 0.5s ease"; // Example: Add a smooth text shadow transition
+    }
+
+    function animateSubscribeInput(element) {
+        // Add your creative animation or styling when the subscribe input is touched
+        element.style.border = "2px solid #1ABC9C"; // Example: Change the border color
+        element.style.transition = "border 0.3s ease"; // Example: Add a smooth border color transition
+    }
+
+    function animateSubscribeButton(element) {
+        // Add your creative animation or styling when the subscribe button is touched
+        element.style.backgroundColor = "#E74C3C"; // Example: Change the background color
+        element.style.transition = "background-color 0.3s ease"; // Example: Add a smooth background color transition
+    }
+</script>
+ 

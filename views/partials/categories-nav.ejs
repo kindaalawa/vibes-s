@@ -1,0 +1,12 @@
+<nav class="nav-cat-bar navbar-expand-lg">
+    <div class="nav-container-fluid">
+        <div class="navbar-nav">
+            <% categories.forEach(function(category) { %>
+                <a class="nav-cat-link btn nav-category-link" href="/category/<%= category.category_Name %>/products"
+                    role="button">
+                    <%= category.category_Name %>
+                </a>
+                <% }); %>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,35 @@
+<body style="background-color: #FFFDFC;">
+
+    <!-- Header partial inclusion -->
+    <%- include('../partials/header') %>
+
+    <div class="container">
+        <h1><%= category_Name %></h1>
+
+        <!-- Form for sorting -->
+        <form method="GET">
+            <label for="sortBy">Sort by:</label>
+            <select name="sortBy" id="sortBy" onchange="this.form.submit()">
+                <option value="lowToHigh">Price, Low to High</option>
+                <option value="highToLow">Price, High to Low</option>
+                <option value="bestSellers">Best Sellers</option>
+            </select>
+        </form>
+
+        <!-- Product List -->
+        <div class="products">
+            <% products.forEach(function(product, index) { %>
+                <div class="product">
+                    <img src="<%= product.product_IMG %>" alt="<%= product.product_Name %>">
+                    <h2><%= product.product_Name %></h2>
+                    <p>$<%= product.product_Price %></p>
+                    <button class="add-to-cart">Add to cart</button>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <!-- Footer partial inclusion -->
+    <%- include('../partials/footer') %>
+</body>
+

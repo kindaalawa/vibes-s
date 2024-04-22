@@ -1,0 +1,51 @@
+<header style="background-color: #FFFDFC; position: relative;">
+
+    <!-- Christmas Sale Notification -->
+    <div class="christmas-sale-notification text-center"
+        style="background-color: #FF0000; color: #FFFFFF; padding: 10px;">
+        <p><strong>🎄 <a href="/christmas-sale-products" style="color: #FFFFFF; text-decoration: none;">HUGE
+                    CHRISTMAS SALE!</a> Get amazing discounts now! 🎁</strong></p>
+    </div>
+
+    <!-- Top statements -->
+    <div class="top-bar text-center" style="background-color: #2a9dca;; color: #FEFDFD;">
+        <p>Free Delivery for orders above 100$</p>
+    </div>
+    <div class="text-center" style="background-color: #FFFDFC; color: #000000;">
+
+    </div>
+ <!-- Main Navigation Bar -->
+ <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFFDFC; height:146px;">
+    <div class="container d-flex justify-content-between align-items-center"
+        style="position: relative; height: 100%;">
+
+        <!-- Centered Logo -->
+        <a class="navbar-brand mx-auto" href="/"
+            style="position: absolute; left: 50%; transform: translateX(-50%);">
+            <img src="/images/logo.png" alt="Logo" style="height: 130px;">
+        </a>
+
+        <!-- Profile and Cart Icons -->
+        <div class="nav-icons header-icons header-content">
+            <a href="/signup" class="nav-link" style="margin-right: 5px;">
+                <img src="/images/profile.png" alt="Profile" />
+            </a>
+            <a href="/cart" class="nav-link" style="margin-right: 5px;">
+                <img src="/images/cart.png" alt="Cart" />
+            </a>
+            <a href="/wishlist" class="nav-link">
+                <img src="/images/wishlist.png" alt="Wishlist" />
+            </a>
+        </div>
+        <form class="d-flex position-absolute" style="left: 20px; top: 50%; transform: translateY(-50%);"
+            action="/api/product/search-results" method="GET">
+            <input class="form-control me-2" type="search" placeholder="Search for a product" aria-label="Search"
+                name="product_Name" />
+            <input type="image" src="/images/search.png" style="width: 50px; height: 50px;" alt="Search" />
+        </form>
+    </div>
+</nav>
+<!-- Include the search bar -->
+<%- include('categories-nav') %>
+</header>
+
